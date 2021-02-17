@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb 18 00:32:01 2021
+
+@author: vince
+"""
+
+from app import app
+from db import db
+
+db.init(app)
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
